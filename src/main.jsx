@@ -10,8 +10,8 @@ import Variables from './Variables'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
  {/* <App/>
- <Home/>
-<Landingpage/> */}
-<Variables/>
+ <Home/> */}
+<Landingpage/>
+{/* <Variables/> */}
   </StrictMode>,
 )
