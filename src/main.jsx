@@ -5,13 +5,17 @@ import App from './App'
 import Landingpage from './Landingpage'
 import Home from './Home'
 import Variables from './Variables'
+import Todos from './Todos'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
  {/* <App/>
  <Home/> */}
-<Landingpage/>
+{/* <Landingpage/> */}
+ <Todos/>
 {/* <Variables/> */}
   </StrictMode>,
+  
+
 )
