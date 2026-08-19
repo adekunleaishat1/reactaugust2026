@@ -1,10 +1,14 @@
 import { useState } from "react"
+import { FaEye, FaEyeSlash } from "react-icons/fa"
+import Button from "./props/Button"
+import Disptodo from "./Disptodo"
 
 function Todos() {
     const [inputvalue, setinpuvalue] = useState("")
     const [inputvalue01, setinpuvalue01] = useState("")
     const [todoArray, settodoArray] = useState([])
     const [currentindex, setcurrentindex] = useState(null)
+    const [showing, setshowing] = useState(false)
 
 
     function Addtodo() {
@@ -44,16 +48,27 @@ function Todos() {
         setcurrentindex(delIndex)
     }
 
-
+    const showpassword = () =>{
+        // if (showing) {
+        //    return setshowing(false)
+        // }
+        // setshowing(true)
+        setshowing(!showing)
+    }
 
     return (
         
         <div>
+            <input type={showing ? "text" : "password"} />
+            <button onClick={showpassword}>{showing ?  <FaEyeSlash/> : <FaEye/>}</button>
             <input value={inputvalue} type="text"  onChange={ (ev) =>  setinpuvalue(ev.target.value)}/>
             <input value={inputvalue01} type="text" onChange={ (ev) =>  setinpuvalue01(ev.target.value)}  />
             <button onClick={Addtodo}>{currentindex == null ? "Add Todo" : "Update Todo"}</button>
-
-            {
+            <Button onclick={()=>alert("signup")} classname="btn btn-success" text="Signup"/>
+            <Button  onclick={()=>alert("Login")} text="Login"/>
+            <Button text="loading"/>
+            <Disptodo todo={todoArray}/>
+            {/* {
                 todoArray.map ((value, i) => {
                        return (
                         <div>
@@ -68,7 +83,7 @@ function Todos() {
                     )
                 })
                  
-            } {}
+            }  */}
 
         </div>
     )
