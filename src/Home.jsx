@@ -2,6 +2,7 @@ import { BsAlipay } from "react-icons/bs"
 import { FaAirbnb } from "react-icons/fa"
 import { FaAddressBook, FaAffiliatetheme } from "react-icons/fa6"
 import hero from "./assets/hero.png"
+import InputProps from "./props/InputProps"
 
 function Home() {
     const mystyle ={
@@ -20,6 +21,8 @@ function Home() {
      <BsAlipay size={20}/>
      <img src={hero} alt="" />
      <p>{username}</p>
+     <InputProps place="Enter your username"/>
+     <InputProps place="Enter your password" onchange={(e)=> console.log(e)  }/>
     </div>
 }
 

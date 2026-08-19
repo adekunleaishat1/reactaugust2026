@@ -67,7 +67,7 @@ function Todos() {
             <Button onclick={()=>alert("signup")} classname="btn btn-success" text="Signup"/>
             <Button  onclick={()=>alert("Login")} text="Login"/>
             <Button text="loading"/>
-            <Disptodo todo={todoArray}/>
+            <Disptodo todo={todoArray} handleDelete={handleDelete} handleEdit={handleEdit}/>
             {/* {
                 todoArray.map ((value, i) => {
                        return (

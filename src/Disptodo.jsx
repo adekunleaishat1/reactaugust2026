@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Disptodo = ({todo}) => {
+const Disptodo = ({todo,handleDelete,handleEdit}) => {
     console.log(todo);
     
   return (
