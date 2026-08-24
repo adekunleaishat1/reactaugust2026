@@ -1,4 +1,5 @@
 import { useState } from "react";
+// import Navbar from "./Navbar";
 
 function Landingpage() {
    const [inputvalue , setinputvalue] = useState("")
@@ -22,6 +23,7 @@ function Landingpage() {
     }
 
     return <div>
+      
         <input type="text" onChange={handleinputchange} />
         <input type="text" onChange={(e)=> setinputvalue2(e.target.value)} />
         <button onClick={Updatearray}>addvalue</button>
