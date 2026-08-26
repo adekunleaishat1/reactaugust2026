@@ -4,16 +4,17 @@ const Dashboard = () => {
     const [value, setvalue] = useState("")
     const [count, setcount] = useState(1)
     const [caculation, setcaculation] = useState(2)
+    const [data, setdata] = useState(null)
 
    useEffect(() => {
     //   alert("welcome")
        setcaculation(caculation * count)
         fetch("https://jsonplaceholder.typicode.com/todos")
-   .then((res)=> res.json())
-   .then((data)=>{
-    console.log(data);
-    
-   })
+        .then((res)=> res.json())
+        .then((data)=>{
+            console.log(data);
+            setdata(data)
+        })
    },[])
 
  
@@ -25,6 +26,15 @@ const Dashboard = () => {
         <h1>{count}</h1>
         <p>{caculation}</p>
         <button onClick={()=> setcount((count)=> count + 1)}>add</button>
+        {data && data.map((todo)=>{
+            return (
+                <>
+                <h1>{todo.title}</h1>
+                </>
+            )
+        })
+
+        }
     </div>
   )
 }
