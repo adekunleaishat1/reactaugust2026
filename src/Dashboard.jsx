@@ -1,6 +1,10 @@
 import React, {useEffect, useState} from 'react'
+import axios from 'axios'
+import { Link } from 'react-router-dom'
 
-const Dashboard = () => {
+const Dashboard = ({alldata}) => {
+    console.log(alldata);
+    
     const [value, setvalue] = useState("")
     const [count, setcount] = useState(1)
     const [caculation, setcaculation] = useState(2)
@@ -17,6 +21,10 @@ const Dashboard = () => {
         })
    },[])
 
+
+
+   
+
  
    
   return (
@@ -30,10 +38,10 @@ const Dashboard = () => {
             return (
                 <>
                 <h1>{todo.title}</h1>
+               <Link to={`/home/dashboard/${todo.id}`}>See more</Link>
                 </>
             )
         })
-
         }
     </div>
   )
