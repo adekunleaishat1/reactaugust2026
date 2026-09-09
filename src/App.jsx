@@ -10,6 +10,7 @@ import Profile from './Profile'
 import Dashboard from './Dashboard'
 import Onedata from './Onedata'
 import axios, { all } from 'axios'
+import Formik from './Formik'
 
 const App = () => {
  const location = useLocation()
@@ -35,6 +36,7 @@ const App = () => {
         <Route path='/landingpage' element={<Home/>}/>
         <Route path='/' element={<Landingpage/>}/>
         <Route path='*' element={<Notfound/>}/>
+        <Route path='/form' element={<Formik/>}/>
 
         <Route path='/home' element={<Layout/>}>
          <Route index element={<Dashboard alldata={alldata}/>} />
