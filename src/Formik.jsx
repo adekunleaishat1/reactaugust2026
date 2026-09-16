@@ -2,11 +2,30 @@ import React from 'react'
 import { useFormik } from 'formik'
 import * as yup from "yup"
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const Formik = () => {
-    const passordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/
+  const navigate = useNavigate()
 
+    const passordregex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/
+     
+     const checkDuplicatedEmail = async(email)=> {
+      try {
+      const check = await axios.get("http://localhost:9876/users")
+      const existuser = check && check.data.find((user)=> user.email == email)
+      if (existuser) {
+        return existuser
+      }
+      
+    } catch (error) {
+      console.log(error.message);
+      
+    }
+    }
+
+   
     const formik = useFormik({
+
         initialValues:{
             username:"",
             email:"",
@@ -14,7 +33,15 @@ const Formik = () => {
         },
         validationSchema:yup.object({
            username:yup.string().trim().min(3,"username cannot be less than 3 characters").required("username is required"),
-           email:yup.string().trim().email("write a valid email").required("email is required"),
+           email:yup.string().trim().email("write a valid email").required("email is required").test(
+            "email already exist",
+            async (value)=>{
+             const result = await checkDuplicatedEmail(value)
+             if (!result) {
+              return true
+             }
+            }
+           ),
            password:yup.string().trim().matches(passordregex, "password must contain uppercase letter,lowercase and a number.").min(6,"password must not be less than 6 character").required("password is required")
 
         }),
@@ -23,13 +50,14 @@ const Formik = () => {
           axios.post("http://localhost:9876/users",value)
           .then((res)=>{
             console.log(res);
-            
+             navigate("/login")
           }).catch((err)=>{
             console.log(err);
             
           })
         }
     })
+
     console.log(formik.errors);
     console.log(formik.touched);
     

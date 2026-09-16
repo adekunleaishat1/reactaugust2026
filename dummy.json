@@ -7,10 +7,16 @@
       "id": "I52G0rCTXhg"
     },
     {
+      "username": "aishat",
+      "email": "aishat@gmail.com",
+      "password": "Yeesha1",
+      "id": "0prRHBdaubQ"
+    },
+    {
       "username": "yeesha",
-      "email": "aishatadekunle877@gmail.com",
-      "password": "Devyeesha1",
-      "id": "r1GULbhkA1U"
+      "email": "aishat877@gmail.com",
+      "password": "Yeesha1",
+      "id": "NCrbRgw346E"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

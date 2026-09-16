@@ -11,6 +11,8 @@ import Dashboard from './Dashboard'
 import Onedata from './Onedata'
 import axios, { all } from 'axios'
 import Formik from './Formik'
+import Login from './Login'
+import Counter from './Counter'
 
 const App = () => {
  const location = useLocation()
@@ -37,6 +39,8 @@ const App = () => {
         <Route path='/' element={<Landingpage/>}/>
         <Route path='*' element={<Notfound/>}/>
         <Route path='/form' element={<Formik/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/count' element={<Counter/>}/>
 
         <Route path='/home' element={<Layout/>}>
          <Route index element={<Dashboard alldata={alldata}/>} />

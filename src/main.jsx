@@ -8,13 +8,16 @@ import App from './App'
 // import Todos from './Todos'
 // import Sportify from './Sportify'
 import { BrowserRouter } from 'react-router-dom'
-
+import { Provider } from 'react-redux'
+import { store } from './Redux/Store'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <Provider store={store}>
     <BrowserRouter>
-         <App/>
+      <App/>
     </BrowserRouter>
+    </Provider>
   </StrictMode>,
   
 
